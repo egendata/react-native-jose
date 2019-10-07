@@ -1,0 +1,791 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		030D15C7A04853B8FCA052348FF71425 /* ASN1DEREncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3F4209AA1B2A3F33849F3BFAC74009 /* ASN1DEREncoding.swift */; };
+		04C583A370A425EF39C1C284E4B93027 /* RSAKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AEC8B59CA76875003A2CE7F544EE48 /* RSAKeys.swift */; };
+		095C3402953871A3ABBF77BC41EC95DA /* RSAEncrypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D14FF0AA61B0021A4DF503253700FC /* RSAEncrypter.swift */; };
+		14E01F48D7145289B85122098E310A22 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D945AC1945AEEC0B4CA0CC2F5A10BD68 /* Deserializer.swift */; };
+		1579126181A5CF8066154CECF63B9B20 /* JOSESwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C04D75C22D9DB66335D60DAE93261A5 /* JOSESwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2102AE931C597B70ED587A9400495614 /* DataRSAPublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF7862855C4D61CD5C3D56792390AC8 /* DataRSAPublicKey.swift */; };
+		248ADAC822AF4DB68FCC62B508C6C5DC /* Encrypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EF44C8AE32F1BD6C3FB09905BA3F1 /* Encrypter.swift */; };
+		2C92F45BB49AAC69AD4C731E3A85505F /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB5B19A4930DCBAECFCC641A29F94 /* HMAC.swift */; };
+		31CF63841C3D7D589C8AE70D2E877535 /* ECKeyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F63E358E65D0721D8E763487C8017 /* ECKeyCodable.swift */; };
+		34D2585AD3EC808C1B1D69E3A9818F87 /* JWK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FA079E9BEAC2B3880862C946F30109 /* JWK.swift */; };
+		3CB2285CF7D95698FFEF8BF553D2EE17 /* SecKeyECPublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC691FA7F4EB9B9E457401A45278D4A1 /* SecKeyECPublicKey.swift */; };
+		3D5A67302FCE134CE52139AA376E5245 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1304437F04E2D424AABB7DDB554B2D8 /* Serializer.swift */; };
+		445CD7B8C437573BD4DA522F08A00B87 /* Pods-Jose-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BD27B0EB109BF7146F58EACEBFE0FC /* Pods-Jose-dummy.m */; };
+		44801DB48A7A5548C83177373EC95062 /* SymmetricKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E745D3B9D7A261242E584D89979D4314 /* SymmetricKeys.swift */; };
+		47BC44912D2B7A26F57E7898D6E81A69 /* RSAKeyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E446AA9A8D2B1C2D74FBDE665613E7E /* RSAKeyCodable.swift */; };
+		491EF29A9F2540740D4D70A840D08B08 /* ASN1DERParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C467F309473426117AD7A4690340A /* ASN1DERParsing.swift */; };
+		4C2F7EE4D2FE63055748628F0EB81575 /* ECVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B33CB2AA0870D8987278CB3C7D9C57C /* ECVerifier.swift */; };
+		4D9047178D1381E8F2522D6457001292 /* Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299565AE52E72883100718A125D4687 /* Algorithms.swift */; };
+		4EF3C739B46860D4D2490D8FC85F7C7C /* AESEncrypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2E29A5EF1C87AED8DDFBF63BD6785 /* AESEncrypter.swift */; };
+		594DA734B5D5FBC6D2DFDD7B53086705 /* Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13470F11371390647B0D13B60E0CD989 /* Verifier.swift */; };
+		5EB0A69ED2F17B66A764A0B69287595F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		60DC053D966428BEDABA137D9ADF986D /* Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165992A1676CE6CB8D111EF3132A16D9 /* Signer.swift */; };
+		6B7A3185BA67BBC4938035B9B5EDBBCB /* JWKSetCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046237B39969A985FBB2507CF0758C3A /* JWKSetCodable.swift */; };
+		700B4C1A4714B0C7F5BE3A58FC1BE48A /* JWKSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BE3FD0C2345F6F966371E38397C9B4 /* JWKSet.swift */; };
+		70F6D0E33CB29E665860522C845410A7 /* JOSESwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 801B994C49D0F7E8F2079AB6FAB9FD13 /* JOSESwift-dummy.m */; };
+		720DEAA9DE7BCDBBFFCF34CB59722484 /* Pods-Jose-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 581265E48B6683EF6A4B641A8AFDD9C6 /* Pods-Jose-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		73CB76CCE5D02582BFB97EB622A70D80 /* JWKExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BB0BCB9AFDF01D5A486DA2126B9BA /* JWKExtensions.swift */; };
+		76809858795AD0D7CD6213B9B084B415 /* RSAVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC364920B1627B53B32D5759142479BB /* RSAVerifier.swift */; };
+		7C406578FA5075641D92BB9D5528F930 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735542C7B5CC7453D4015D1DA4D4486C /* DataExtensions.swift */; };
+		7F193A75629BC8D14DDF7368B2EADADE /* RSASigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58682D5411362E3156B33A5D4580E71 /* RSASigner.swift */; };
+		819CDE01891B8F7F3D00BE0FF9938CC9 /* JWSHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCA58F2CFC8B08282F82E8742A62979 /* JWSHeader.swift */; };
+		82786C31A8CB665D7EE32E34037972CE /* JOSESwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 17DBE2B0424F298989C7F8CDCF0F70A4 /* JOSESwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		840806EEBAA6A5A36EE308C1EEB160F1 /* SecKeyECPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113C566C86CDB9D9FFBC4FE521F29434 /* SecKeyECPrivateKey.swift */; };
+		85276B54B4547A43AE46A1CA6AFE00B3 /* SecKeyRSAPublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D411DD097ECD020DF20469668CB21BA5 /* SecKeyRSAPublicKey.swift */; };
+		8E368DF3B259596A92F1DD8237755801 /* JOSEHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029467C7146D815BC9DAF9BDE647935 /* JOSEHeader.swift */; };
+		8F4F1B04565CEA81E92301110974CB27 /* SecureRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D67B5C63959A314C830B9AEA69B92F7 /* SecureRandom.swift */; };
+		91E3AA27E5C2622B50EB1C6CC232203E /* JOSESwiftError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D94F124E992C368B16DC61DFF332 /* JOSESwiftError.swift */; };
+		91EDA71D05F78399E1AB1DB9908D280A /* RSADecrypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6148BB927E9E16FA81F3D0641EC3BFE4 /* RSADecrypter.swift */; };
+		9537921EF7349561E2B81B1A602E8813 /* JWE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5CFB6EA81CC96E85AFB87DB58B8AF4 /* JWE.swift */; };
+		95FE44026720820E3226A70DA75154E3 /* JWKParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E6AFE7C2743E5C927337356EAF43F3 /* JWKParameters.swift */; };
+		967FA476C902C193A5F6DB21C1A0B600 /* AESDecrypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD94A27040CAE3ED61C5FFA22762451A /* AESDecrypter.swift */; };
+		9A53817759315AA657CBA8C12FDCFA08 /* ECSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA6F03682F77360F81C6CFB1E2D5DAF /* ECSigner.swift */; };
+		A2010C32DEB3A7CE6FF3E02355B87B23 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC56CCBBBF37E883676778CEC465C88 /* AES.swift */; };
+		AB4BAEC56E3CA70E4F08275A95DF0040 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121B735EBA7C57D851ED797FBCA7F10E /* Payload.swift */; };
+		B01594AF4DDC12C138736DBBEA96E713 /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C35F39EDAFEE23CA97BAE96E82534 /* RSA.swift */; };
+		B457F106A52FEA0BE3DDA9FA10110F82 /* EC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAD48A93781830AE683D71B69E555C /* EC.swift */; };
+		BB50DD31C4D2B9CBE855ED5A667C8FE6 /* JWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91F7DAEC9B583058016464EDFD69B6 /* JWS.swift */; };
+		BE9E32B858694F92FAD58984C185A659 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		C2B75613603279D572E6E7EEF22E8294 /* SymmetricKeyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C172271344D6F7637E92900E8EEE7B0 /* SymmetricKeyCodable.swift */; };
+		C3676B84911D840315F171BB5F7E1499 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D515D9E61FBFB7C9E20A7F4D0A744512 /* DataConvertible.swift */; };
+		CAD426185851F99E6E7FDB8C12AB9EA9 /* DataECPublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E157C74B8D1B130551F5A0B5D4F45E7 /* DataECPublicKey.swift */; };
+		CFA3F299AAA8566FA5B97F9D76CA562C /* Compressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF1E795273804EB182335910E5BDD /* Compressor.swift */; };
+		D4D1A3CF649AD3F4784763799795110F /* ECKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01769C8CC922A86FA0B8E9D27E5F1584 /* ECKeys.swift */; };
+		D844C478347BB584C374E1D69DA8220B /* DataSymmetricKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B13BCC2F0799B82A964114E8611831 /* DataSymmetricKey.swift */; };
+		DEBECAA846B9507A9FC76AF3EB53B498 /* DeflateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B6128C2019E308B4A19325AA10381 /* DeflateWrapper.swift */; };
+		DF7F4268E2D5DDE96B05AF9FD8675CFF /* Decrypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99445D5145C54413275AD1DDB52C763E /* Decrypter.swift */; };
+		E6CFC057BB085260C17D41FDA591F3DB /* DataECPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379BB9F40A85943B18E02115741A986 /* DataECPrivateKey.swift */; };
+		FCC8B12A62937FB5A318CE7E22B1559F /* JWEHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C9F6B7C0250572E1DE22DC3F3BA1CF /* JWEHeader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1D9F90A5FB125DF0B385EF7BE8A94F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CCD8AFB41855F80CA73D2C8ABC802C9;
+			remoteInfo = JOSESwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01769C8CC922A86FA0B8E9D27E5F1584 /* ECKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECKeys.swift; path = JOSESwift/Sources/ECKeys.swift; sourceTree = "<group>"; };
+		01D14FF0AA61B0021A4DF503253700FC /* RSAEncrypter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSAEncrypter.swift; path = JOSESwift/Sources/RSAEncrypter.swift; sourceTree = "<group>"; };
+		036054370A9F83C08BB488FD8765C06F /* JOSESwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JOSESwift-prefix.pch"; sourceTree = "<group>"; };
+		03BE3FD0C2345F6F966371E38397C9B4 /* JWKSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWKSet.swift; path = JOSESwift/Sources/JWKSet.swift; sourceTree = "<group>"; };
+		046237B39969A985FBB2507CF0758C3A /* JWKSetCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWKSetCodable.swift; path = JOSESwift/Sources/JWKSetCodable.swift; sourceTree = "<group>"; };
+		0A3C385A27C31544F1DC298910B4C2B3 /* Pods-Jose.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jose.release.xcconfig"; sourceTree = "<group>"; };
+		0BCA58F2CFC8B08282F82E8742A62979 /* JWSHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWSHeader.swift; path = JOSESwift/Sources/JWSHeader.swift; sourceTree = "<group>"; };
+		113C566C86CDB9D9FFBC4FE521F29434 /* SecKeyECPrivateKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecKeyECPrivateKey.swift; path = JOSESwift/Sources/CryptoImplementation/SecKeyECPrivateKey.swift; sourceTree = "<group>"; };
+		121B735EBA7C57D851ED797FBCA7F10E /* Payload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Payload.swift; path = JOSESwift/Sources/Payload.swift; sourceTree = "<group>"; };
+		1299565AE52E72883100718A125D4687 /* Algorithms.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Algorithms.swift; path = JOSESwift/Sources/Algorithms.swift; sourceTree = "<group>"; };
+		13470F11371390647B0D13B60E0CD989 /* Verifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Verifier.swift; path = JOSESwift/Sources/Verifier.swift; sourceTree = "<group>"; };
+		1379BB9F40A85943B18E02115741A986 /* DataECPrivateKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataECPrivateKey.swift; path = JOSESwift/Sources/CryptoImplementation/DataECPrivateKey.swift; sourceTree = "<group>"; };
+		14A10D0728DD4D72089172FF787A6CCF /* Pods-Jose.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jose.debug.xcconfig"; sourceTree = "<group>"; };
+		165992A1676CE6CB8D111EF3132A16D9 /* Signer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Signer.swift; path = JOSESwift/Sources/Signer.swift; sourceTree = "<group>"; };
+		17DBE2B0424F298989C7F8CDCF0F70A4 /* JOSESwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JOSESwift-umbrella.h"; sourceTree = "<group>"; };
+		2E157C74B8D1B130551F5A0B5D4F45E7 /* DataECPublicKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataECPublicKey.swift; path = JOSESwift/Sources/CryptoImplementation/DataECPublicKey.swift; sourceTree = "<group>"; };
+		2E446AA9A8D2B1C2D74FBDE665613E7E /* RSAKeyCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSAKeyCodable.swift; path = JOSESwift/Sources/RSAKeyCodable.swift; sourceTree = "<group>"; };
+		2FC56CCBBBF37E883676778CEC465C88 /* AES.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES.swift; path = JOSESwift/Sources/CryptoImplementation/AES.swift; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		344A9EE12A16082710BC8A1333414E27 /* JOSESwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JOSESwift.xcconfig; sourceTree = "<group>"; };
+		3C3CF1E795273804EB182335910E5BDD /* Compressor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compressor.swift; path = JOSESwift/Sources/Compressor.swift; sourceTree = "<group>"; };
+		4CC1B591CA9C19F2C50635345169C3A5 /* Pods_Jose.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Jose.framework; path = "Pods-Jose.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D67B5C63959A314C830B9AEA69B92F7 /* SecureRandom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureRandom.swift; path = JOSESwift/Sources/CryptoImplementation/SecureRandom.swift; sourceTree = "<group>"; };
+		50FA079E9BEAC2B3880862C946F30109 /* JWK.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWK.swift; path = JOSESwift/Sources/JWK.swift; sourceTree = "<group>"; };
+		51AEC8B59CA76875003A2CE7F544EE48 /* RSAKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSAKeys.swift; path = JOSESwift/Sources/RSAKeys.swift; sourceTree = "<group>"; };
+		576BB2ACCACF75C9DB9CA880F8DB361E /* JOSESwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JOSESwift-Info.plist"; sourceTree = "<group>"; };
+		57F2E29A5EF1C87AED8DDFBF63BD6785 /* AESEncrypter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AESEncrypter.swift; path = JOSESwift/Sources/AESEncrypter.swift; sourceTree = "<group>"; };
+		581265E48B6683EF6A4B641A8AFDD9C6 /* Pods-Jose-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jose-umbrella.h"; sourceTree = "<group>"; };
+		5C6C467F309473426117AD7A4690340A /* ASN1DERParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1DERParsing.swift; path = JOSESwift/Sources/ASN1DERParsing.swift; sourceTree = "<group>"; };
+		6148BB927E9E16FA81F3D0641EC3BFE4 /* RSADecrypter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSADecrypter.swift; path = JOSESwift/Sources/RSADecrypter.swift; sourceTree = "<group>"; };
+		6BC4A44E6A5A23C8F4A76FE6DF9FE557 /* Pods-Jose-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jose-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6C04D75C22D9DB66335D60DAE93261A5 /* JOSESwift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JOSESwift.h; path = JOSESwift/Support/JOSESwift.h; sourceTree = "<group>"; };
+		735542C7B5CC7453D4015D1DA4D4486C /* DataExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataExtensions.swift; path = JOSESwift/Sources/DataExtensions.swift; sourceTree = "<group>"; };
+		75BD27B0EB109BF7146F58EACEBFE0FC /* Pods-Jose-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jose-dummy.m"; sourceTree = "<group>"; };
+		78ADBFF659D89E874E56C61DF4DCD433 /* Pods-Jose-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jose-Info.plist"; sourceTree = "<group>"; };
+		7C172271344D6F7637E92900E8EEE7B0 /* SymmetricKeyCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SymmetricKeyCodable.swift; path = JOSESwift/Sources/SymmetricKeyCodable.swift; sourceTree = "<group>"; };
+		7E3F4209AA1B2A3F33849F3BFAC74009 /* ASN1DEREncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1DEREncoding.swift; path = JOSESwift/Sources/ASN1DEREncoding.swift; sourceTree = "<group>"; };
+		7F7C35F39EDAFEE23CA97BAE96E82534 /* RSA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSA.swift; path = JOSESwift/Sources/CryptoImplementation/RSA.swift; sourceTree = "<group>"; };
+		801B994C49D0F7E8F2079AB6FAB9FD13 /* JOSESwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JOSESwift-dummy.m"; sourceTree = "<group>"; };
+		843AB5B19A4930DCBAECFCC641A29F94 /* HMAC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HMAC.swift; path = JOSESwift/Sources/CryptoImplementation/HMAC.swift; sourceTree = "<group>"; };
+		84D2E53624850063818F6299973EE893 /* JOSESwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JOSESwift.framework; path = JOSESwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A5CFB6EA81CC96E85AFB87DB58B8AF4 /* JWE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWE.swift; path = JOSESwift/Sources/JWE.swift; sourceTree = "<group>"; };
+		8C7BB0BCB9AFDF01D5A486DA2126B9BA /* JWKExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWKExtensions.swift; path = JOSESwift/Sources/JWKExtensions.swift; sourceTree = "<group>"; };
+		8D358C208089DF1B6E07345FE74FFD8E /* Pods-Jose-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jose-acknowledgements.plist"; sourceTree = "<group>"; };
+		8D4AE195A332D6F24C5A80BA26D0D4FB /* Pods-Jose.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Jose.modulemap"; sourceTree = "<group>"; };
+		8DF7862855C4D61CD5C3D56792390AC8 /* DataRSAPublicKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataRSAPublicKey.swift; path = JOSESwift/Sources/CryptoImplementation/DataRSAPublicKey.swift; sourceTree = "<group>"; };
+		913B6128C2019E308B4A19325AA10381 /* DeflateWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeflateWrapper.swift; path = JOSESwift/Sources/CompressionImplementation/DeflateWrapper.swift; sourceTree = "<group>"; };
+		99445D5145C54413275AD1DDB52C763E /* Decrypter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decrypter.swift; path = JOSESwift/Sources/Decrypter.swift; sourceTree = "<group>"; };
+		9B33CB2AA0870D8987278CB3C7D9C57C /* ECVerifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECVerifier.swift; path = JOSESwift/Sources/ECVerifier.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A4B13BCC2F0799B82A964114E8611831 /* DataSymmetricKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataSymmetricKey.swift; path = JOSESwift/Sources/CryptoImplementation/DataSymmetricKey.swift; sourceTree = "<group>"; };
+		AADC448AD17BB2EE46881244CE56DA0C /* JOSESwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JOSESwift.modulemap; sourceTree = "<group>"; };
+		B5C9F6B7C0250572E1DE22DC3F3BA1CF /* JWEHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWEHeader.swift; path = JOSESwift/Sources/JWEHeader.swift; sourceTree = "<group>"; };
+		BC364920B1627B53B32D5759142479BB /* RSAVerifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSAVerifier.swift; path = JOSESwift/Sources/RSAVerifier.swift; sourceTree = "<group>"; };
+		BD94A27040CAE3ED61C5FFA22762451A /* AESDecrypter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AESDecrypter.swift; path = JOSESwift/Sources/AESDecrypter.swift; sourceTree = "<group>"; };
+		C62F63E358E65D0721D8E763487C8017 /* ECKeyCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECKeyCodable.swift; path = JOSESwift/Sources/ECKeyCodable.swift; sourceTree = "<group>"; };
+		CCEAD48A93781830AE683D71B69E555C /* EC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EC.swift; path = JOSESwift/Sources/CryptoImplementation/EC.swift; sourceTree = "<group>"; };
+		CF91F7DAEC9B583058016464EDFD69B6 /* JWS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWS.swift; path = JOSESwift/Sources/JWS.swift; sourceTree = "<group>"; };
+		D1304437F04E2D424AABB7DDB554B2D8 /* Serializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Serializer.swift; path = JOSESwift/Sources/Serializer.swift; sourceTree = "<group>"; };
+		D411DD097ECD020DF20469668CB21BA5 /* SecKeyRSAPublicKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecKeyRSAPublicKey.swift; path = JOSESwift/Sources/CryptoImplementation/SecKeyRSAPublicKey.swift; sourceTree = "<group>"; };
+		D515D9E61FBFB7C9E20A7F4D0A744512 /* DataConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataConvertible.swift; path = JOSESwift/Sources/DataConvertible.swift; sourceTree = "<group>"; };
+		D945AC1945AEEC0B4CA0CC2F5A10BD68 /* Deserializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deserializer.swift; path = JOSESwift/Sources/Deserializer.swift; sourceTree = "<group>"; };
+		E745D3B9D7A261242E584D89979D4314 /* SymmetricKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SymmetricKeys.swift; path = JOSESwift/Sources/SymmetricKeys.swift; sourceTree = "<group>"; };
+		E9C3D94F124E992C368B16DC61DFF332 /* JOSESwiftError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JOSESwiftError.swift; path = JOSESwift/Sources/JOSESwiftError.swift; sourceTree = "<group>"; };
+		EC691FA7F4EB9B9E457401A45278D4A1 /* SecKeyECPublicKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecKeyECPublicKey.swift; path = JOSESwift/Sources/CryptoImplementation/SecKeyECPublicKey.swift; sourceTree = "<group>"; };
+		F029467C7146D815BC9DAF9BDE647935 /* JOSEHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JOSEHeader.swift; path = JOSESwift/Sources/JOSEHeader.swift; sourceTree = "<group>"; };
+		F4E6AFE7C2743E5C927337356EAF43F3 /* JWKParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWKParameters.swift; path = JOSESwift/Sources/JWKParameters.swift; sourceTree = "<group>"; };
+		F58682D5411362E3156B33A5D4580E71 /* RSASigner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSASigner.swift; path = JOSESwift/Sources/RSASigner.swift; sourceTree = "<group>"; };
+		F62EF44C8AE32F1BD6C3FB09905BA3F1 /* Encrypter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Encrypter.swift; path = JOSESwift/Sources/Encrypter.swift; sourceTree = "<group>"; };
+		FEA6F03682F77360F81C6CFB1E2D5DAF /* ECSigner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECSigner.swift; path = JOSESwift/Sources/ECSigner.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC26730475C97146087995989985FA24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE9E32B858694F92FAD58984C185A659 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E91232BC3D0715C320F96F0A35DF3970 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB0A69ED2F17B66A764A0B69287595F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		179B49365B65849CF0AD31E8B45B325C /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A46FB25891B88FC82A63C91CA08A313 /* Pods-Jose */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3621835A919053D84DC36A83771D32E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BC90E96167CFE2E82565E234E5A1DF7 /* JOSESwift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A46FB25891B88FC82A63C91CA08A313 /* Pods-Jose */ = {
+			isa = PBXGroup;
+			children = (
+				8D4AE195A332D6F24C5A80BA26D0D4FB /* Pods-Jose.modulemap */,
+				6BC4A44E6A5A23C8F4A76FE6DF9FE557 /* Pods-Jose-acknowledgements.markdown */,
+				8D358C208089DF1B6E07345FE74FFD8E /* Pods-Jose-acknowledgements.plist */,
+				75BD27B0EB109BF7146F58EACEBFE0FC /* Pods-Jose-dummy.m */,
+				78ADBFF659D89E874E56C61DF4DCD433 /* Pods-Jose-Info.plist */,
+				581265E48B6683EF6A4B641A8AFDD9C6 /* Pods-Jose-umbrella.h */,
+				14A10D0728DD4D72089172FF787A6CCF /* Pods-Jose.debug.xcconfig */,
+				0A3C385A27C31544F1DC298910B4C2B3 /* Pods-Jose.release.xcconfig */,
+			);
+			name = "Pods-Jose";
+			path = "Target Support Files/Pods-Jose";
+			sourceTree = "<group>";
+		};
+		6BC90E96167CFE2E82565E234E5A1DF7 /* JOSESwift */ = {
+			isa = PBXGroup;
+			children = (
+				2FC56CCBBBF37E883676778CEC465C88 /* AES.swift */,
+				BD94A27040CAE3ED61C5FFA22762451A /* AESDecrypter.swift */,
+				57F2E29A5EF1C87AED8DDFBF63BD6785 /* AESEncrypter.swift */,
+				1299565AE52E72883100718A125D4687 /* Algorithms.swift */,
+				7E3F4209AA1B2A3F33849F3BFAC74009 /* ASN1DEREncoding.swift */,
+				5C6C467F309473426117AD7A4690340A /* ASN1DERParsing.swift */,
+				3C3CF1E795273804EB182335910E5BDD /* Compressor.swift */,
+				D515D9E61FBFB7C9E20A7F4D0A744512 /* DataConvertible.swift */,
+				1379BB9F40A85943B18E02115741A986 /* DataECPrivateKey.swift */,
+				2E157C74B8D1B130551F5A0B5D4F45E7 /* DataECPublicKey.swift */,
+				735542C7B5CC7453D4015D1DA4D4486C /* DataExtensions.swift */,
+				8DF7862855C4D61CD5C3D56792390AC8 /* DataRSAPublicKey.swift */,
+				A4B13BCC2F0799B82A964114E8611831 /* DataSymmetricKey.swift */,
+				99445D5145C54413275AD1DDB52C763E /* Decrypter.swift */,
+				913B6128C2019E308B4A19325AA10381 /* DeflateWrapper.swift */,
+				D945AC1945AEEC0B4CA0CC2F5A10BD68 /* Deserializer.swift */,
+				CCEAD48A93781830AE683D71B69E555C /* EC.swift */,
+				C62F63E358E65D0721D8E763487C8017 /* ECKeyCodable.swift */,
+				01769C8CC922A86FA0B8E9D27E5F1584 /* ECKeys.swift */,
+				FEA6F03682F77360F81C6CFB1E2D5DAF /* ECSigner.swift */,
+				9B33CB2AA0870D8987278CB3C7D9C57C /* ECVerifier.swift */,
+				F62EF44C8AE32F1BD6C3FB09905BA3F1 /* Encrypter.swift */,
+				843AB5B19A4930DCBAECFCC641A29F94 /* HMAC.swift */,
+				F029467C7146D815BC9DAF9BDE647935 /* JOSEHeader.swift */,
+				6C04D75C22D9DB66335D60DAE93261A5 /* JOSESwift.h */,
+				E9C3D94F124E992C368B16DC61DFF332 /* JOSESwiftError.swift */,
+				8A5CFB6EA81CC96E85AFB87DB58B8AF4 /* JWE.swift */,
+				B5C9F6B7C0250572E1DE22DC3F3BA1CF /* JWEHeader.swift */,
+				50FA079E9BEAC2B3880862C946F30109 /* JWK.swift */,
+				8C7BB0BCB9AFDF01D5A486DA2126B9BA /* JWKExtensions.swift */,
+				F4E6AFE7C2743E5C927337356EAF43F3 /* JWKParameters.swift */,
+				03BE3FD0C2345F6F966371E38397C9B4 /* JWKSet.swift */,
+				046237B39969A985FBB2507CF0758C3A /* JWKSetCodable.swift */,
+				CF91F7DAEC9B583058016464EDFD69B6 /* JWS.swift */,
+				0BCA58F2CFC8B08282F82E8742A62979 /* JWSHeader.swift */,
+				121B735EBA7C57D851ED797FBCA7F10E /* Payload.swift */,
+				7F7C35F39EDAFEE23CA97BAE96E82534 /* RSA.swift */,
+				6148BB927E9E16FA81F3D0641EC3BFE4 /* RSADecrypter.swift */,
+				01D14FF0AA61B0021A4DF503253700FC /* RSAEncrypter.swift */,
+				2E446AA9A8D2B1C2D74FBDE665613E7E /* RSAKeyCodable.swift */,
+				51AEC8B59CA76875003A2CE7F544EE48 /* RSAKeys.swift */,
+				F58682D5411362E3156B33A5D4580E71 /* RSASigner.swift */,
+				BC364920B1627B53B32D5759142479BB /* RSAVerifier.swift */,
+				113C566C86CDB9D9FFBC4FE521F29434 /* SecKeyECPrivateKey.swift */,
+				EC691FA7F4EB9B9E457401A45278D4A1 /* SecKeyECPublicKey.swift */,
+				D411DD097ECD020DF20469668CB21BA5 /* SecKeyRSAPublicKey.swift */,
+				4D67B5C63959A314C830B9AEA69B92F7 /* SecureRandom.swift */,
+				D1304437F04E2D424AABB7DDB554B2D8 /* Serializer.swift */,
+				165992A1676CE6CB8D111EF3132A16D9 /* Signer.swift */,
+				7C172271344D6F7637E92900E8EEE7B0 /* SymmetricKeyCodable.swift */,
+				E745D3B9D7A261242E584D89979D4314 /* SymmetricKeys.swift */,
+				13470F11371390647B0D13B60E0CD989 /* Verifier.swift */,
+				956AC53A200C784B802A913358ACAC1D /* Support Files */,
+			);
+			name = JOSESwift;
+			path = JOSESwift;
+			sourceTree = "<group>";
+		};
+		8D1C59346547749DACDA7ADAB4A20838 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84D2E53624850063818F6299973EE893 /* JOSESwift.framework */,
+				4CC1B591CA9C19F2C50635345169C3A5 /* Pods_Jose.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		956AC53A200C784B802A913358ACAC1D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AADC448AD17BB2EE46881244CE56DA0C /* JOSESwift.modulemap */,
+				344A9EE12A16082710BC8A1333414E27 /* JOSESwift.xcconfig */,
+				801B994C49D0F7E8F2079AB6FAB9FD13 /* JOSESwift-dummy.m */,
+				576BB2ACCACF75C9DB9CA880F8DB361E /* JOSESwift-Info.plist */,
+				036054370A9F83C08BB488FD8765C06F /* JOSESwift-prefix.pch */,
+				17DBE2B0424F298989C7F8CDCF0F70A4 /* JOSESwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JOSESwift";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				3621835A919053D84DC36A83771D32E3 /* Pods */,
+				8D1C59346547749DACDA7ADAB4A20838 /* Products */,
+				179B49365B65849CF0AD31E8B45B325C /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A6D273BA319F5CEBC5E6FCEFBCC22411 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				720DEAA9DE7BCDBBFFCF34CB59722484 /* Pods-Jose-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBFB8E1927FDFB5E24D1DFA52A8605E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82786C31A8CB665D7EE32E34037972CE /* JOSESwift-umbrella.h in Headers */,
+				1579126181A5CF8066154CECF63B9B20 /* JOSESwift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2C7D1AAF3BD163F5EB0A4521BEA5E211 /* Pods-Jose */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C227624D7C9A585B584A36F6E6ADDB6B /* Build configuration list for PBXNativeTarget "Pods-Jose" */;
+			buildPhases = (
+				A6D273BA319F5CEBC5E6FCEFBCC22411 /* Headers */,
+				ECD10E97FB03671ABE04FA092D999283 /* Sources */,
+				DC26730475C97146087995989985FA24 /* Frameworks */,
+				B28AC9C6C5F26DC53939677BDE78F60C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				140D9AD6479869ACA68B927C2D032288 /* PBXTargetDependency */,
+			);
+			name = "Pods-Jose";
+			productName = "Pods-Jose";
+			productReference = 4CC1B591CA9C19F2C50635345169C3A5 /* Pods_Jose.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7CCD8AFB41855F80CA73D2C8ABC802C9 /* JOSESwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7C34C7964010B939E530634EDCD82D8 /* Build configuration list for PBXNativeTarget "JOSESwift" */;
+			buildPhases = (
+				EDBFB8E1927FDFB5E24D1DFA52A8605E /* Headers */,
+				486CCB4D23C26C0F0BA407B3052D58A9 /* Sources */,
+				E91232BC3D0715C320F96F0A35DF3970 /* Frameworks */,
+				4E397E7327775CF3A8B6553008772940 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JOSESwift;
+			productName = JOSESwift;
+			productReference = 84D2E53624850063818F6299973EE893 /* JOSESwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 8D1C59346547749DACDA7ADAB4A20838 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7CCD8AFB41855F80CA73D2C8ABC802C9 /* JOSESwift */,
+				2C7D1AAF3BD163F5EB0A4521BEA5E211 /* Pods-Jose */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E397E7327775CF3A8B6553008772940 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B28AC9C6C5F26DC53939677BDE78F60C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		486CCB4D23C26C0F0BA407B3052D58A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2010C32DEB3A7CE6FF3E02355B87B23 /* AES.swift in Sources */,
+				967FA476C902C193A5F6DB21C1A0B600 /* AESDecrypter.swift in Sources */,
+				4EF3C739B46860D4D2490D8FC85F7C7C /* AESEncrypter.swift in Sources */,
+				4D9047178D1381E8F2522D6457001292 /* Algorithms.swift in Sources */,
+				030D15C7A04853B8FCA052348FF71425 /* ASN1DEREncoding.swift in Sources */,
+				491EF29A9F2540740D4D70A840D08B08 /* ASN1DERParsing.swift in Sources */,
+				CFA3F299AAA8566FA5B97F9D76CA562C /* Compressor.swift in Sources */,
+				C3676B84911D840315F171BB5F7E1499 /* DataConvertible.swift in Sources */,
+				E6CFC057BB085260C17D41FDA591F3DB /* DataECPrivateKey.swift in Sources */,
+				CAD426185851F99E6E7FDB8C12AB9EA9 /* DataECPublicKey.swift in Sources */,
+				7C406578FA5075641D92BB9D5528F930 /* DataExtensions.swift in Sources */,
+				2102AE931C597B70ED587A9400495614 /* DataRSAPublicKey.swift in Sources */,
+				D844C478347BB584C374E1D69DA8220B /* DataSymmetricKey.swift in Sources */,
+				DF7F4268E2D5DDE96B05AF9FD8675CFF /* Decrypter.swift in Sources */,
+				DEBECAA846B9507A9FC76AF3EB53B498 /* DeflateWrapper.swift in Sources */,
+				14E01F48D7145289B85122098E310A22 /* Deserializer.swift in Sources */,
+				B457F106A52FEA0BE3DDA9FA10110F82 /* EC.swift in Sources */,
+				31CF63841C3D7D589C8AE70D2E877535 /* ECKeyCodable.swift in Sources */,
+				D4D1A3CF649AD3F4784763799795110F /* ECKeys.swift in Sources */,
+				9A53817759315AA657CBA8C12FDCFA08 /* ECSigner.swift in Sources */,
+				4C2F7EE4D2FE63055748628F0EB81575 /* ECVerifier.swift in Sources */,
+				248ADAC822AF4DB68FCC62B508C6C5DC /* Encrypter.swift in Sources */,
+				2C92F45BB49AAC69AD4C731E3A85505F /* HMAC.swift in Sources */,
+				8E368DF3B259596A92F1DD8237755801 /* JOSEHeader.swift in Sources */,
+				70F6D0E33CB29E665860522C845410A7 /* JOSESwift-dummy.m in Sources */,
+				91E3AA27E5C2622B50EB1C6CC232203E /* JOSESwiftError.swift in Sources */,
+				9537921EF7349561E2B81B1A602E8813 /* JWE.swift in Sources */,
+				FCC8B12A62937FB5A318CE7E22B1559F /* JWEHeader.swift in Sources */,
+				34D2585AD3EC808C1B1D69E3A9818F87 /* JWK.swift in Sources */,
+				73CB76CCE5D02582BFB97EB622A70D80 /* JWKExtensions.swift in Sources */,
+				95FE44026720820E3226A70DA75154E3 /* JWKParameters.swift in Sources */,
+				700B4C1A4714B0C7F5BE3A58FC1BE48A /* JWKSet.swift in Sources */,
+				6B7A3185BA67BBC4938035B9B5EDBBCB /* JWKSetCodable.swift in Sources */,
+				BB50DD31C4D2B9CBE855ED5A667C8FE6 /* JWS.swift in Sources */,
+				819CDE01891B8F7F3D00BE0FF9938CC9 /* JWSHeader.swift in Sources */,
+				AB4BAEC56E3CA70E4F08275A95DF0040 /* Payload.swift in Sources */,
+				B01594AF4DDC12C138736DBBEA96E713 /* RSA.swift in Sources */,
+				91EDA71D05F78399E1AB1DB9908D280A /* RSADecrypter.swift in Sources */,
+				095C3402953871A3ABBF77BC41EC95DA /* RSAEncrypter.swift in Sources */,
+				47BC44912D2B7A26F57E7898D6E81A69 /* RSAKeyCodable.swift in Sources */,
+				04C583A370A425EF39C1C284E4B93027 /* RSAKeys.swift in Sources */,
+				7F193A75629BC8D14DDF7368B2EADADE /* RSASigner.swift in Sources */,
+				76809858795AD0D7CD6213B9B084B415 /* RSAVerifier.swift in Sources */,
+				840806EEBAA6A5A36EE308C1EEB160F1 /* SecKeyECPrivateKey.swift in Sources */,
+				3CB2285CF7D95698FFEF8BF553D2EE17 /* SecKeyECPublicKey.swift in Sources */,
+				85276B54B4547A43AE46A1CA6AFE00B3 /* SecKeyRSAPublicKey.swift in Sources */,
+				8F4F1B04565CEA81E92301110974CB27 /* SecureRandom.swift in Sources */,
+				3D5A67302FCE134CE52139AA376E5245 /* Serializer.swift in Sources */,
+				60DC053D966428BEDABA137D9ADF986D /* Signer.swift in Sources */,
+				C2B75613603279D572E6E7EEF22E8294 /* SymmetricKeyCodable.swift in Sources */,
+				44801DB48A7A5548C83177373EC95062 /* SymmetricKeys.swift in Sources */,
+				594DA734B5D5FBC6D2DFDD7B53086705 /* Verifier.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECD10E97FB03671ABE04FA092D999283 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				445CD7B8C437573BD4DA522F08A00B87 /* Pods-Jose-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		140D9AD6479869ACA68B927C2D032288 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JOSESwift;
+			target = 7CCD8AFB41855F80CA73D2C8ABC802C9 /* JOSESwift */;
+			targetProxy = C1D9F90A5FB125DF0B385EF7BE8A94F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		196DFA3E4A09A28224918543529A1885 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1EE00D726E53C28F4CFD637991557539 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 344A9EE12A16082710BC8A1333414E27 /* JOSESwift.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JOSESwift/JOSESwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JOSESwift/JOSESwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JOSESwift/JOSESwift.modulemap";
+				PRODUCT_MODULE_NAME = JOSESwift;
+				PRODUCT_NAME = JOSESwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AE0DF9E64B1EC66E8D024985E70D6653 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A3C385A27C31544F1DC298910B4C2B3 /* Pods-Jose.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Jose/Pods-Jose-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Jose/Pods-Jose.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		BFC23CC64629932D4FC1FBAD6FBBB9AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14A10D0728DD4D72089172FF787A6CCF /* Pods-Jose.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Jose/Pods-Jose-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Jose/Pods-Jose.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EB7F7A8C883903471601881A1C5AA8DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 344A9EE12A16082710BC8A1333414E27 /* JOSESwift.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JOSESwift/JOSESwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JOSESwift/JOSESwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JOSESwift/JOSESwift.modulemap";
+				PRODUCT_MODULE_NAME = JOSESwift;
+				PRODUCT_NAME = JOSESwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				196DFA3E4A09A28224918543529A1885 /* Debug */,
+				B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C227624D7C9A585B584A36F6E6ADDB6B /* Build configuration list for PBXNativeTarget "Pods-Jose" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFC23CC64629932D4FC1FBAD6FBBB9AE /* Debug */,
+				AE0DF9E64B1EC66E8D024985E70D6653 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7C34C7964010B939E530634EDCD82D8 /* Build configuration list for PBXNativeTarget "JOSESwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EE00D726E53C28F4CFD637991557539 /* Debug */,
+				EB7F7A8C883903471601881A1C5AA8DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
