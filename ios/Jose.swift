@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import JOSESwift
+//import JOSESwift
 
 @objc(Jose)
 class Jose: NSObject {
@@ -32,14 +32,14 @@ class Jose: NSObject {
         resolve("#### Resolve done")
     }
     
-    @objc
-    func promiseSignRN(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
-        let message = "Trumpets of Mexico 🏜"
-
-        let data = message.data(using: .utf8)!
-
-        let payload = Payload(data)
-
-        resolve(payload)
-    }
+//    @objc
+//    func promiseSignRN(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+//        let message = "Trumpets of Mexico 🏜"
+//
+//        let data = message.data(using: .utf8)!
+//
+//        let payload = Payload(data)
+//
+//        resolve(payload)
+//    }
 }
