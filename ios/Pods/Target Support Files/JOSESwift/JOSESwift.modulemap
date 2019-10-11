@@ -1,0 +1,6 @@
+module JOSESwift {
+  umbrella header "JOSESwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
