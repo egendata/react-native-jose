@@ -7,6 +7,11 @@
 //
 
 import Foundation
+
+/*
+ When you want to build this project standalone uncomment the import JOSESwift 
+ */
+
 //import JOSESwift
 
 @objc(Jose)
@@ -32,14 +37,15 @@ class Jose: NSObject {
         resolve("#### Resolve done")
     }
     
-//    @objc
-//    func promiseSignRN(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
-//        let message = "Trumpets of Mexico 🏜"
-//
-//        let data = message.data(using: .utf8)!
-//
-//        let payload = Payload(data)
-//
-//        resolve(payload)
-//    }
+    @objc
+    func promiseSignRN(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+        let message = "Trumpets of Mexico 🏜"
+
+        let data = message.data(using: .utf8)!
+
+        let payload = Payload(data)
+        let payloadMessage = String(data: payload.data(), encoding: .utf8)!
+        
+        resolve(payloadMessage)
+    }
 }
