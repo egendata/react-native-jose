@@ -14,6 +14,7 @@ RCT_EXTERN_METHOD(promiseSignRN: (RCTPromiseResolveBlock)resolve
 
 RCT_EXTERN_METHOD(sign: (NSString)message
                   key: (NSString)key
+                  jwk: (NSDictionary *)jwk
                   resolver: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)
 
