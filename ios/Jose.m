@@ -6,7 +6,7 @@
 
 RCT_EXTERN_METHOD(sign: (NSDictionary *)payload
                   key: (NSString)key
-                  jwk: (NSDictionary *)jwk
+                  header: (NSDictionary *)header
                   resolver: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)
 
