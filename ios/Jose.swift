@@ -29,56 +29,39 @@ class Jose: NSObject {
 
     @objc
     func sign(_ payload: NSDictionary, key: String, jwk: NSDictionary, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
-        print("GOT payload")
-        print(payload)
-
-        print("GOT KEY")
-        print(key)
-
-        print("GOT jwk")
-        print(jwk)
-
         let jwkDictionary = try! jwk as? [String: Any]
-
-
         let headerData = try! JSONSerialization.data(withJSONObject: ["jwk":jwkDictionary, "alg":SignatureAlgorithm.RS256.rawValue], options: [])
         let header = JWSHeader(headerData)!
-
         let keyData = Data(base64Encoded: key as! String)
-
         let attributes: [String: Any] = [
             kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
             kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
             kSecAttrKeySizeInBits as String: 2048
         ]
-
         var error: Unmanaged<CFError>?
-
         guard let privateKey = SecKeyCreateWithData(keyData as! CFData, attributes as CFDictionary, &error) else {
             print(error!)
-            reject("500", "it b0rked", error as? Error)
+            reject("500", "create private key error", error as? Error)
             return
-
         }
-
         let payloadDictionary = try! payload as? [String: Any]
         let payloadData = try! JSONSerialization.data(withJSONObject: payloadDictionary, options: [])
-//        let data = message.data(using: .utf8)!
         let payload = Payload(payloadData)
-
         let signer = Signer(signingAlgorithm: .RS256, privateKey: privateKey)!
         let jws = try! JWS(header: header, payload: payload, signer: signer)
-
         resolve(jws.compactSerializedString)
     }
 
     @objc
-    func verify(_ message: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
-        let data = message.data(using: .utf8)!
-
-        let payload = Payload(data)
-        let payloadMessage = String(data: payload.data(), encoding: .utf8)!
-
-        resolve(payloadMessage)
+    func verify(_ token: String, jwk: NSDictionary, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+        let jws = try! JWS(compactSerialization: token)
+        let publicKeyDictionary = try! jwk as? [String: Any]
+        let publicKeyJson = try! JSONSerialization.data(withJSONObject: publicKeyDictionary, options: [])
+        let jwkDecoded = try! JSONDecoder().decode(RSAPublicKey.self, from: publicKeyJson)
+        let publicKey: SecKey = try! jwkDecoded.converted(to: SecKey.self)
+        let verifier = Verifier(verifyingAlgorithm: .RS256, publicKey: publicKey)!
+        let payload = try! jws.validate(using: verifier).payload
+        let jsonPayload = try! JSONSerialization.jsonObject(with: payload.data(), options: [])
+        resolve(jsonPayload)
     }
 }

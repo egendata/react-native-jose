@@ -10,7 +10,8 @@ RCT_EXTERN_METHOD(sign: (NSDictionary *)payload
                   resolver: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)
 
-RCT_EXTERN_METHOD(verify: (NSString)message
+RCT_EXTERN_METHOD(verify: (NSString)token
+                  jwk: (NSDictionary *)jwk
                   resolver: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)
 
