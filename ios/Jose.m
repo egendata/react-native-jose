@@ -4,15 +4,7 @@
 
 @interface RCT_EXTERN_MODULE(Jose, NSObject)
 
-RCT_EXTERN_METHOD(greet)
-
-RCT_EXTERN_METHOD(promiseRN: (RCTPromiseResolveBlock)resolve
-                  rejecter: (RCTPromiseRejectBlock)reject)
-
-RCT_EXTERN_METHOD(promiseSignRN: (RCTPromiseResolveBlock)resolve
-                  rejecter: (RCTPromiseRejectBlock)reject)
-
-RCT_EXTERN_METHOD(sign: (NSString)message
+RCT_EXTERN_METHOD(sign: (NSDictionary *)payload
                   key: (NSString)key
                   jwk: (NSDictionary *)jwk
                   resolver: (RCTPromiseResolveBlock)resolve

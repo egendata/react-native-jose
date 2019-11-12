@@ -28,31 +28,9 @@ class Jose: NSObject {
     }
 
     @objc
-    func greet() {
-        print("called greet")
-    }
-
-    @objc
-    func promiseRN(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
-        resolve("#### Resolve done")
-    }
-
-    @objc
-    func promiseSignRN(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
-        let message = "Trumpets of Mexico 🏜"
-
-        let data = message.data(using: .utf8)!
-
-        let payload = Payload(data)
-        let payloadMessage = String(data: payload.data(), encoding: .utf8)!
-
-        resolve(payloadMessage)
-    }
-
-    @objc
-    func sign(_ message: String, key: String, jwk: NSDictionary, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
-        print("GOT message")
-        print(message)
+    func sign(_ payload: NSDictionary, key: String, jwk: NSDictionary, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+        print("GOT payload")
+        print(payload)
 
         print("GOT KEY")
         print(key)
@@ -61,6 +39,7 @@ class Jose: NSObject {
         print(jwk)
 
         let jwkDictionary = try! jwk as? [String: Any]
+
 
         let headerData = try! JSONSerialization.data(withJSONObject: ["jwk":jwkDictionary, "alg":SignatureAlgorithm.RS256.rawValue], options: [])
         let header = JWSHeader(headerData)!
@@ -82,8 +61,10 @@ class Jose: NSObject {
 
         }
 
-        let data = message.data(using: .utf8)!
-        let payload = Payload(data)
+        let payloadDictionary = try! payload as? [String: Any]
+        let payloadData = try! JSONSerialization.data(withJSONObject: payloadDictionary, options: [])
+//        let data = message.data(using: .utf8)!
+        let payload = Payload(payloadData)
 
         let signer = Signer(signingAlgorithm: .RS256, privateKey: privateKey)!
         let jws = try! JWS(header: header, payload: payload, signer: signer)
