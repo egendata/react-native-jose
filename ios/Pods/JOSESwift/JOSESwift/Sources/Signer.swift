@@ -6,7 +6,7 @@
 //  Modified by Jarrod Moldrich on 02.07.18.
 //
 //  ---------------------------------------------------------------------------
-//  Copyright 2018 Airside Mobile Inc.
+//  Copyright 2019 Airside Mobile Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ public struct Signer<KeyType> {
     /// - Returns: A fully initialized `Signer` or `nil` if provided key is of the wrong type.
     public init?(signingAlgorithm: SignatureAlgorithm, privateKey: KeyType) {
         switch signingAlgorithm {
-        case .RS256, .RS512:
+        case .RS256, .RS384, .RS512, .PS256, .PS384, .PS512:
             guard type(of: privateKey) is RSASigner.KeyType.Type else {
                 return nil
             }

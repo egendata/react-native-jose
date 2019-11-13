@@ -10,6 +10,22 @@
 //  Originally created by mw99 (Markus Wanke) in his libcompression wrapper https://github.com/mw99/DataCompression
 //  licensed under Apache License, Version 2.0
 //
+//  ---------------------------------------------------------------------------
+//  Copyright 2019 Airside Mobile Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//  ---------------------------------------------------------------------------
+//
 
 import Foundation
 import Compression
@@ -19,28 +35,42 @@ struct DeflateCompressor: CompressorProtocol {
     /// - returns: raw deflated data according to [RFC-1951](https://tools.ietf.org/html/rfc1951).
     /// - note: Fixed at compression level 5 (best trade off between speed and time)
     public func compress(data: Data) throws -> Data {
+        guard data.count > 0 else {
+            throw JOSESwiftError.rawDataMustBeGreaterThanZero
+        }
+
         let config = (operation: COMPRESSION_STREAM_ENCODE, algorithm: COMPRESSION_ZLIB)
-        let optionalData = data.withUnsafeBytes { (sourcePtr: UnsafePointer<UInt8>) -> Data? in
-            return perform(config, source: sourcePtr, sourceSize: data.count)
+        if let data = data.withUnsafeBytes({ sourcePtr in
+            // Force unwrapping is ok, since data is guaranteed not to be empty.
+            // From the docs: If the baseAddress of this buffer is nil, the count is zero.
+            // swiftlint:disable:next force_unwrapping
+            perform(config, source: sourcePtr.baseAddress!.assumingMemoryBound(to: UInt8.self), sourceSize: data.count)
+        }) {
+            return data
+        } else {
+            throw JOSESwiftError.compressionFailed
         }
-        if let _data = optionalData {
-            return _data
-        }
-        throw JOSESwiftError.compressionFailed
     }
 
     /// Decompresses the data using the zlib deflate algorithm. Self is expected to be a raw deflate
     /// stream according to [RFC-1951](https://tools.ietf.org/html/rfc1951).
     /// - returns: uncompressed data
     public func decompress(data: Data) throws -> Data {
+        guard data.count > 0 else {
+            throw JOSESwiftError.compressedDataMustBeGreaterThanZero
+        }
+
         let config = (operation: COMPRESSION_STREAM_DECODE, algorithm: COMPRESSION_ZLIB)
-        let optionalData = data.withUnsafeBytes { (sourcePtr: UnsafePointer<UInt8>) -> Data? in
-            return perform(config, source: sourcePtr, sourceSize: data.count)
+        if let data = data.withUnsafeBytes({ sourcePtr in
+            // Force unwrapping is ok, since data is guaranteed not to be empty.
+            // From the docs: If the baseAddress of this buffer is nil, the count is zero.
+            // swiftlint:disable:next force_unwrapping
+            perform(config, source: sourcePtr.baseAddress!.assumingMemoryBound(to: UInt8.self), sourceSize: data.count)
+        }) {
+            return data
+        } else {
+            throw JOSESwiftError.decompressionFailed
         }
-        if let _data = optionalData {
-            return _data
-        }
-        throw JOSESwiftError.decompressionFailed
     }
 }
 

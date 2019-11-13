@@ -5,7 +5,7 @@
 //  Created by Daniel Egger on 12/10/2017.
 //
 //  ---------------------------------------------------------------------------
-//  Copyright 2018 Airside Mobile Inc.
+//  Copyright 2019 Airside Mobile Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ public struct JWE {
     /// The compact serialization of this JWE object as data.
     public var compactSerializedData: Data {
         // Force unwrapping is ok here, since `serialize` returns a string generated from data.
-        // swiftlint:disable:next force_unwrap
+        // swiftlint:disable:next force_unwrapping
         return JOSESerializer().serialize(compact: self).data(using: .utf8)!
     }
 

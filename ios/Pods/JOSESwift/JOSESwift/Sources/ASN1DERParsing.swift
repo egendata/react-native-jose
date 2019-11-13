@@ -5,7 +5,7 @@
 //  Created by Daniel Egger on 06.02.18.
 //
 //  ---------------------------------------------------------------------------
-//  Copyright 2018 Airside Mobile Inc.
+//  Copyright 2019 Airside Mobile Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -45,6 +45,12 @@ internal enum ASN1Type {
             return 0x02
         }
     }
+}
+
+internal struct TLVTriplet {
+    let tag: UInt8
+    let length: [UInt8]
+    let value: [UInt8]
 }
 
 // MARK: Array Extension for Parsing
@@ -99,7 +105,7 @@ internal extension Array where Element == UInt8 {
     /// [here](https://msdn.microsoft.com/en-us/library/windows/desktop/bb540801(v=vs.85).aspx).
     ///
     /// - Returns: A triplet containing the ASN.1 type's tag, length, and value field.
-    func nextTLVTriplet() throws -> (tag: UInt8, length: [UInt8], value: [UInt8]) {
+    func nextTLVTriplet() throws -> TLVTriplet {
         var pointer = 0
 
         // DER encoding of an ASN.1 type: [ TAG | LENGTH | VALUE ].
@@ -117,7 +123,7 @@ internal extension Array where Element == UInt8 {
 
         let valueField = try readValueField(ofLength: valueFieldLength, from: self, pointer: &pointer)
 
-        return (tag: tag, length: lengthField, value: valueField)
+        return TLVTriplet(tag: tag, length: lengthField, value: valueField)
     }
 
 }

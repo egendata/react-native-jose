@@ -5,7 +5,7 @@
 //  Created by Daniel Egger on 09.11.17.
 //
 //  ---------------------------------------------------------------------------
-//  Copyright 2018 Airside Mobile Inc.
+//  Copyright 2019 Airside Mobile Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ internal struct AESEncrypter: SymmetricEncrypter {
         concatData.append(additionalAuthenticatedData.getByteLengthAsOctetHexData())
 
         // Calculate the HMAC with the concatenated input data, the HMAC key and the HMAC algorithm.
-        let hmacOutput = HMAC.calculate(from: concatData, with: hmacKey, using: algorithm.hmacAlgorithm)
+        let hmacOutput = try HMAC.calculate(from: concatData, with: hmacKey, using: algorithm.hmacAlgorithm)
         let authenticationTag = algorithm.authenticationTag(for: hmacOutput)
 
         return SymmetricEncryptionContext(

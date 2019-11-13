@@ -5,7 +5,7 @@
 //  Created by Daniel Egger on 17/10/2017.
 //
 //  ---------------------------------------------------------------------------
-//  Copyright 2018 Airside Mobile Inc.
+//  Copyright 2019 Airside Mobile Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -122,7 +122,7 @@ public struct Decrypter {
 
         var cek: Data
 
-        if (alg == .direct) {
+        if alg == .direct {
             guard context.encryptedKey == Data() else {
                 throw JOSESwiftError.decryptingFailed(
                     description: "Direct encryption does not expect an encrypted key."

@@ -5,7 +5,7 @@
 //  Created by Daniel Egger on 09.11.17.
 //
 //  ---------------------------------------------------------------------------
-//  Copyright 2018 Airside Mobile Inc.
+//  Copyright 2019 Airside Mobile Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -53,7 +53,7 @@ internal struct AESDecrypter: SymmetricDecrypter {
         concatData.append(context.additionalAuthenticatedData.getByteLengthAsOctetHexData())
 
         // Calculate the HMAC for the concatenated input data and compare it with the reference authentication tag.
-        let hmacOutput = HMAC.calculate(from: concatData, with: hmacKey, using: algorithm.hmacAlgorithm)
+        let hmacOutput = try HMAC.calculate(from: concatData, with: hmacKey, using: algorithm.hmacAlgorithm)
 
         guard context.authenticationTag == algorithm.authenticationTag(for: hmacOutput) else {
             throw JWEError.hmacNotAuthenticated

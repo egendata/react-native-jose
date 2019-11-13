@@ -46,7 +46,7 @@ class Jose: NSObject {
         let payloadDictionary = try! payload as? [String: Any]
         let payloadData = try! JSONSerialization.data(withJSONObject: payloadDictionary, options: [])
         let payload = Payload(payloadData)
-        let signer = Signer(signingAlgorithm: .RS256, privateKey: privateKey)!
+        let signer = Signer(signingAlgorithm: .PS256, privateKey: privateKey)!
         let jws = try! JWS(header: jwsHeader, payload: payload, signer: signer)
 
         resolve(jws.compactSerializedString)
@@ -58,7 +58,7 @@ class Jose: NSObject {
         let publicKeyJson = try! JSONSerialization.data(withJSONObject: try! jwk as? [String: Any], options: [])
         let jwkDecoded = try! JSONDecoder().decode(RSAPublicKey.self, from: publicKeyJson)
         let publicKey: SecKey = try! jwkDecoded.converted(to: SecKey.self)
-        let verifier = Verifier(verifyingAlgorithm: .RS256, publicKey: publicKey)!
+        let verifier = Verifier(verifyingAlgorithm: .PS256, publicKey: publicKey)!
         let payload = try! jws.validate(using: verifier).payload
         let jsonPayload = try! JSONSerialization.jsonObject(with: payload.data(), options: [])
 
