@@ -64,4 +64,12 @@ class Jose: NSObject {
 
         resolve(jsonPayload)
     }
+
+    @objc
+    func decode(_ token: String, options: NSDictionary, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+        let jws = try! JOSEDeserializer().deserialize(JWS.self, fromCompactSerialization: token)
+        let jsonPayload = try! JSONSerialization.jsonObject(with: jws.payload.data(), options: [])
+        let signature = [UInt8](jws.signature)
+        resolve(["claimsSet": jsonPayload, "header": jws.header.parameters, "signature": signature])
+    }
 }

@@ -15,4 +15,9 @@ RCT_EXTERN_METHOD(verify: (NSString)token
                   resolver: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(decode: (NSString)token
+                  options: (NSDictionary *)options
+                  resolver: (RCTPromiseResolveBlock)resolve
+                  rejecter: (RCTPromiseRejectBlock)reject)
+
 @end
