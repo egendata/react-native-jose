@@ -63,6 +63,8 @@ dependencies {
     // https://github.com/facebook/react-native/blob/0.61-stable/template/android/app/build.gradle#L192
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    implementation 'com.nimbusds:nimbus-jose-jwt:8.0'
+    implementation 'org.bouncycastle:bcprov-jdk15on:[1.56,)'
 }
 
 def configureReactNativePom(def pom) {
