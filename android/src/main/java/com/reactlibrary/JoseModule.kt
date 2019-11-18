@@ -9,7 +9,7 @@ import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.SignedJWT
 import com.facebook.react.bridge.ReadableMap
 import org.json.JSONObject
-
+import com.nimbusds.jose.crypto.RSASSAVerifier
 
 class JoseModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
@@ -39,11 +39,18 @@ class JoseModule(private val reactContext: ReactApplicationContext) : ReactConte
     }
 
     @ReactMethod
-    fun verify(stringArgument: String, numberArgument: Int, promise: Promise) {
-        println("verify is called")
-        println(stringArgument)
-        // TODO: Implement some actually useful functionality
-        promise.resolve("Received numberArgument: $numberArgument stringArgument: $stringArgument")
+    fun verify(token: String, jwk: ReadableMap, promise: Promise) {
+        try {
+            val signedJWT = SignedJWT.parse(token)
+            val jwkString = JSONObject(jwk.toHashMap()).toString()
+            val rsaJWK = RSAKey.parse(jwkString)
+            val verifier = RSASSAVerifier(rsaJWK)
+            verifier.jcaContext.provider = BouncyCastleProviderSingleton.getInstance()
+            signedJWT.verify(verifier)
+            promise.resolve(signedJWT.payload.toJSONObject())
+        } catch (ex: Exception) {
+            promise.reject(ex)
+        }
     }
 
     @ReactMethod
