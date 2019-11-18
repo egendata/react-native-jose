@@ -5,7 +5,7 @@
 @interface RCT_EXTERN_MODULE(Jose, NSObject)
 
 RCT_EXTERN_METHOD(sign: (NSDictionary *)payload
-                  key: (NSString)key
+                  keys: (NSDictionary *)keys
                   header: (NSDictionary *)header
                   resolver: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)

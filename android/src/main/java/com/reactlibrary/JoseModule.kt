@@ -20,10 +20,14 @@ class JoseModule(private val reactContext: ReactApplicationContext) : ReactConte
     @ReactMethod
     fun sign(payload: ReadableMap, keys: ReadableMap, header: ReadableMap, promise: Promise) {
         try {
-            val claimsSet = JWTClaimsSet.parse(JSONObject(payload.toHashMap()).toString())
-            val jwsHeader = JWSHeader.parse(JSONObject(header.toHashMap()).toString())
+            val payloadString = JSONObject(payload.toHashMap()).toString()
+            val headerString = JSONObject(header.toHashMap()).toString()
+            val jwkString = JSONObject(keys.getMap("jwk")!!.toHashMap()).toString()
+
+            val claimsSet = JWTClaimsSet.parse(payloadString)
+            val jwsHeader = JWSHeader.parse(headerString)
             val signedJWT = SignedJWT(jwsHeader, claimsSet)
-            val rsaJWK = RSAKey.parse(keys.getMap("jwk")!!.toHashMap().toString())
+            val rsaJWK = RSAKey.parse(jwkString)
             val signer = RSASSASigner(rsaJWK)
             signer.jcaContext.provider = BouncyCastleProviderSingleton.getInstance()
             signedJWT.sign(signer)
