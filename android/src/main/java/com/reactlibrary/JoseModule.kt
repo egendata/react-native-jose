@@ -10,12 +10,12 @@ import com.nimbusds.jwt.SignedJWT
 import com.facebook.react.bridge.ReadableMap
 import org.json.JSONObject
 import com.nimbusds.jose.crypto.RSASSAVerifier
+import com.facebook.react.bridge.WritableNativeMap
+import com.reactlibrary.Utils.convertJsonToMap
 
 class JoseModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
-    override fun getName(): String {
-        return "Jose"
-    }
+    override fun getName() = "Jose"
 
     @ReactMethod
     fun sign(payload: ReadableMap, keys: ReadableMap, header: ReadableMap, promise: Promise) {
@@ -47,17 +47,28 @@ class JoseModule(private val reactContext: ReactApplicationContext) : ReactConte
             val verifier = RSASSAVerifier(rsaJWK)
             verifier.jcaContext.provider = BouncyCastleProviderSingleton.getInstance()
             signedJWT.verify(verifier)
-            promise.resolve(signedJWT.payload.toJSONObject())
+            val result = convertJsonToMap(JSONObject(signedJWT.payload.toJSONObject()))
+            promise.resolve(result)
         } catch (ex: Exception) {
             promise.reject(ex)
         }
     }
 
     @ReactMethod
-    fun decode(stringArgument: String, numberArgument: Int, promise: Promise) {
-        println("decode is called")
-        println(stringArgument)
-        // TODO: Implement some actually useful functionality
-        promise.resolve("Received numberArgument: $numberArgument stringArgument: $stringArgument")
+    fun decode(token: String, options: ReadableMap, promise: Promise) {
+        try {
+            val signedJWT = SignedJWT.parse(token)
+            val claimsSet = convertJsonToMap(JSONObject(signedJWT.payload.toJSONObject()))
+            val signature = signedJWT.signature
+            val header = convertJsonToMap(JSONObject(signedJWT.header.toJSONObject()))
+            val result = WritableNativeMap().apply {
+                putMap("claimsSet", claimsSet)
+                putMap("header", header)
+                putString("signature", signature.toString())
+            }
+            promise.resolve(result)
+        } catch (ex: Exception) {
+            promise.reject(ex)
+        }
     }
 }
