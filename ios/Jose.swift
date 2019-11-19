@@ -28,10 +28,10 @@ class Jose: NSObject {
     }
 
     @objc
-    func sign(_ payload: NSDictionary, key: String, header: NSDictionary, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+    func sign(_ payload: NSDictionary, keys: NSDictionary, header: NSDictionary, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
         let headerData = try! JSONSerialization.data(withJSONObject: try! header as? [String: Any], options: [])
         let jwsHeader = JWSHeader(headerData)!
-        let keyData = Data(base64Encoded: key as! String)
+        let keyData = Data(base64Encoded: keys["der"] as! String)
         let attributes: [String: Any] = [
             kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
             kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
