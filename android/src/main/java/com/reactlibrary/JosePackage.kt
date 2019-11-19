@@ -12,7 +12,6 @@ class JosePackage : ReactPackage {
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
-//        return emptyList()
         return Collections.emptyList<ViewManager<*, *>>()
     }
 }
