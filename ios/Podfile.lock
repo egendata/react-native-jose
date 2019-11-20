@@ -2,21 +2,21 @@ PODS:
   - JOSESwift (1.8.1)
 
 DEPENDENCIES:
-  - JOSESwift (from `https://github.com/JohanObrink/JOSESwift.git`, branch `feature/Add-RSA-PSS-support`)
+  - JOSESwift (from `https://github.com/airsidemobile/JOSESwift.git`, branch `master`)
 
 EXTERNAL SOURCES:
   JOSESwift:
-    :branch: feature/Add-RSA-PSS-support
-    :git: https://github.com/JohanObrink/JOSESwift.git
+    :branch: master
+    :git: https://github.com/airsidemobile/JOSESwift.git
 
 CHECKOUT OPTIONS:
   JOSESwift:
-    :commit: e41566918c961d6651cbbe95b663d6b388a9fe59
-    :git: https://github.com/JohanObrink/JOSESwift.git
+    :commit: d65db2f76a47bb4bc2edd3c9d5498e5813efbbc9
+    :git: https://github.com/airsidemobile/JOSESwift.git
 
 SPEC CHECKSUMS:
   JOSESwift: c77a4409062829e90d42e6b7c2244b486fdc3f11
 
-PODFILE CHECKSUM: f3698bc5e34f13d9e8d08fd57714068efba1e508
+PODFILE CHECKSUM: 44f09a59b298bca6a569406e5ec7a0f8d83e597a
 
 COCOAPODS: 1.7.5
