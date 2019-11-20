@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/egendata/react-native-jose/compare/v0.3.0...v0.4.0) (2019-11-20)
+
+
+### Features
+
+* 🎸 ios use algorithm from header ([#2](https://github.com/egendata/react-native-jose/issues/2)) ([64c430b](https://github.com/egendata/react-native-jose/commit/64c430b45f6d76be88d9902ad1a6018f837d6ad8))
+
 # [0.3.0](https://github.com/egendata/react-native-jose/compare/v0.2.0...v0.3.0) (2019-11-19)
 
 
