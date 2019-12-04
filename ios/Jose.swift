@@ -72,4 +72,22 @@ class Jose: NSObject {
         let signature = [UInt8](jws.signature)
         resolve(["claimsSet": jsonPayload, "header": jws.header.parameters, "signature": signature])
     }
+
+    @objc
+    func decrypt(_ payload: String, keys: NSDictionary, alg: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+        let attributes: [String: Any] = [
+            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+            kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
+            kSecAttrKeySizeInBits as String: 2048
+        ]
+        var error: Unmanaged<CFError>?
+        let keyData = Data(base64Encoded: keys["der"] as! String)
+        guard let privateKey = SecKeyCreateWithData(keyData as! CFData, attributes as CFDictionary, &error) else {
+            print(error!)
+            reject("500", "it b0rked", error as? Error)
+            return
+        }
+        let decryptedData = try! RSA.decrypt(Data(base64URLEncoded: payload)!, with: privateKey, and: .RSAOAEP)
+        resolve(decryptedData.base64URLEncodedString())
+    }
 }
