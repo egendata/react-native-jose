@@ -143,6 +143,7 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libJose.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJose.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2124C28E23994232001E35F7 /* Swift-JWK-to-PEM */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Swift-JWK-to-PEM"; path = "SwiftPackages/Swift-JWK-to-PEM"; sourceTree = "<group>"; };
 		21D877A12344D80300DF6E09 /* Jose-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jose-Bridging-Header.h"; sourceTree = "<group>"; };
 		21D877A22344D80300DF6E09 /* Jose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jose.swift; sourceTree = "<group>"; };
 		21D877A52344D89000DF6E09 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
@@ -220,6 +221,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				2124C28E23994232001E35F7 /* Swift-JWK-to-PEM */,
 				21D877A22344D80300DF6E09 /* Jose.swift */,
 				B3E7B5891CC2AC0600A0062D /* Jose.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
