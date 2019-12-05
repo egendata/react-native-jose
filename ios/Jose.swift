@@ -12,7 +12,8 @@ import Foundation
  When you want to build this project standalone uncomment the import JOSESwift
  */
 
-//import JOSESwift
+import JOSESwift
+//import SWIFTJWKToPEM
 
 @objc(Jose)
 class Jose: NSObject {
@@ -70,24 +71,27 @@ class Jose: NSObject {
         let jws = try! JOSEDeserializer().deserialize(JWS.self, fromCompactSerialization: token)
         let jsonPayload = try! JSONSerialization.jsonObject(with: jws.payload.data(), options: [])
         let signature = [UInt8](jws.signature)
-        resolve(["claimsSet": jsonPayload, "header": jws.header.parameters, "signature": signature])
+        resolve(["claimsSet": jsonPayload, "header": jws.header, "signature": signature])
+//        resolve(["claimsSet": jsonPayload, "header": jws.header.parameters, "signature": signature])
     }
 
     @objc
-    func decrypt(_ payload: String, keys: NSDictionary, alg: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+    func reEncryptCek(_ encryptedCek: String, ownerKeys: NSDictionary, recipientKeys: NSDictionary, alg: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
         let attributes: [String: Any] = [
             kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
             kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
             kSecAttrKeySizeInBits as String: 2048
         ]
         var error: Unmanaged<CFError>?
-        let keyData = Data(base64Encoded: keys["der"] as! String)
+        let keyData = Data(base64Encoded: ownerKeys["der"] as! String)
         guard let privateKey = SecKeyCreateWithData(keyData as! CFData, attributes as CFDictionary, &error) else {
             print(error!)
             reject("500", "it b0rked", error as? Error)
             return
         }
-        let decryptedData = try! RSA.decrypt(Data(base64URLEncoded: payload)!, with: privateKey, and: .RSAOAEP)
-        resolve(decryptedData.base64URLEncodedString())
+        resolve("foo")
+        
+//        let decryptedData = try! RSA.decrypt(Data(base64URLEncoded: encryptedCek)!, with: privateKey, and: .RSAOAEP)
+//        resolve(decryptedData.base64URLEncodedString())
     }
 }

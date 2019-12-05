@@ -15,8 +15,9 @@ RCT_EXTERN_METHOD(verify: (NSString)token
                   resolver: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)
 
-RCT_EXTERN_METHOD(decrypt: (NSString)payload
-                  keys: (NSDictionary *)keys
+RCT_EXTERN_METHOD(reEncryptCek: (NSString)encryptedCek
+                  ownerKeys: (NSDictionary *)ownerKeys
+                  recipientKeys: (NSDictionary *)recipientKeys
                   alg: (NSString)alg
                   resolver: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)

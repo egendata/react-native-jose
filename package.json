@@ -35,5 +35,8 @@
     "semantic-release": "^15.13.24",
     "react": "^16.8.3",
     "react-native": "^0.59.10"
+  },
+  "dependencies": {
+    "jwk-to-pem": "^2.0.2"
   }
 }
