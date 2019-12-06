@@ -1,5 +1,4 @@
 import { NativeModules } from 'react-native'
-// import jwkToPem from 'jwk-to-pem'
 const { Jose } = NativeModules
 
 function pem2der(key) {
@@ -11,8 +10,8 @@ function pem2der(key) {
     .replace('-----END RSA PUBLIC KEY-----', '')
 }
 
-function keys(jwk) {
-  return { jwk, der: pem2der(jwk) }
+function keys(keys) {
+  return { jwk: keys.jwk, privateDer: pem2der(keys.privateKey), publicDer: pem2der(keys.publicKey) }
 }
 
 export const sign = Jose.sign
@@ -26,7 +25,7 @@ export const addRecipient = async (
   alg = 'RSA-OAEP'
 ) => {
   const { encrypted_key } = jwe.recipients.find(
-    r => r.header.kid === ownerKey.kid
+    r => r.header.kid === ownerKey.jwk.kid
   )
   if (!encrypted_key) {
     throw new Error('no matching recipient for owner key')
@@ -37,9 +36,10 @@ export const addRecipient = async (
     keys(recipientKey),
     alg
   )
+
   jwe.recipients.push({
     header: {
-      kid: recipientKey.kid,
+      kid: recipientKey.jwk.kid,
       alg
     },
     encrypted_key: newEncryptedKey
