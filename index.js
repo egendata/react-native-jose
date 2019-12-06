@@ -20,26 +20,26 @@ export const decode = Jose.decode
 
 export const addRecipient = async (
   jwe,
-  ownerKey,
-  recipientKey,
+  ownerKeys,
+  recipientKeys,
   alg = 'RSA-OAEP'
 ) => {
   const { encrypted_key } = jwe.recipients.find(
-    r => r.header.kid === ownerKey.jwk.kid
+    r => r.header.kid === ownerKeys.jwk.kid
   )
   if (!encrypted_key) {
     throw new Error('no matching recipient for owner key')
   }
   const newEncryptedKey = await Jose.reEncryptCek(
     encrypted_key,
-    keys(ownerKey),
-    keys(recipientKey),
+    keys(ownerKeys),
+    keys(recipientKeys),
     alg
   )
 
   jwe.recipients.push({
     header: {
-      kid: recipientKey.jwk.kid,
+      kid: recipientKeys.jwk.kid,
       alg
     },
     encrypted_key: newEncryptedKey
