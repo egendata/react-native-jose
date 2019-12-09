@@ -86,8 +86,8 @@ class Jose: NSObject {
             kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
             kSecAttrKeySizeInBits as String: 2048
         ]
-        let ownerKeyData = Data(base64Encoded: ownerKeys["privateDer"] as! String)
-        let recipientKeyData = Data(base64Encoded: recipientKeys["publicDer"] as! String)
+        let ownerKeyData = Data(base64Encoded: ownerKeys["der"] as! String)
+        let recipientKeyData = Data(base64Encoded: recipientKeys["der"] as! String)
         guard let ownerKey = SecKeyCreateWithData(ownerKeyData as! CFData, ownerKeyAttributes as CFDictionary, &error) else {
             print(error!)
             reject("500", "create owner key failed", error as? Error)

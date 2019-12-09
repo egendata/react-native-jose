@@ -11,7 +11,7 @@ function pem2der(key) {
 }
 
 function keys(keys) {
-  return { jwk: keys.jwk, privateDer: pem2der(keys.privateKey), publicDer: pem2der(keys.publicKey) }
+  return { jwk: keys.jwk, der: pem2der(keys.pem) }
 }
 
 export const sign = Jose.sign

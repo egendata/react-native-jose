@@ -1,5 +1,6 @@
 package com.reactlibrary
 
+import android.util.Base64
 import com.facebook.react.bridge.*
 import com.nimbusds.jose.JWSHeader
 import com.nimbusds.jose.crypto.RSASSASigner
@@ -11,7 +12,9 @@ import com.facebook.react.bridge.ReadableMap
 import org.json.JSONObject
 import com.nimbusds.jose.crypto.RSASSAVerifier
 import com.facebook.react.bridge.WritableNativeMap
+import com.nimbusds.jose.crypto.impl.RSA_OAEP
 import com.reactlibrary.Utils.convertJsonToMap
+
 
 class JoseModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
@@ -67,6 +70,22 @@ class JoseModule(private val reactContext: ReactApplicationContext) : ReactConte
                 putString("signature", signature.toString())
             }
             promise.resolve(result)
+        } catch (ex: Exception) {
+            promise.reject(ex)
+        }
+    }
+
+    @ReactMethod
+    fun reEncryptCek(encryptedCek: String, ownerKeys: ReadableMap, recipientKeys: ReadableMap, alg: String, promise: Promise) {
+        try {
+            val ownerJwkString = JSONObject(ownerKeys.getMap("jwk")!!.toHashMap()).toString()
+            val ownerKey = RSAKey.parse(ownerJwkString)
+            val recipientJwkString = JSONObject(recipientKeys.getMap("jwk")!!.toHashMap()).toString()
+            val recipientKey = RSAKey.parse(recipientJwkString)
+            val base64flags = Base64.URL_SAFE + Base64.NO_PADDING + Base64.NO_WRAP
+            val decryptedData = RSA_OAEP.decryptCEK(ownerKey.toRSAPrivateKey(), Base64.decode(encryptedCek, base64flags), BouncyCastleProviderSingleton.getInstance())
+            val encryptedData = RSA_OAEP.encryptCEK(recipientKey.toRSAPublicKey(), decryptedData, BouncyCastleProviderSingleton.getInstance())
+            promise.resolve(Base64.encodeToString(encryptedData, base64flags))
         } catch (ex: Exception) {
             promise.reject(ex)
         }
