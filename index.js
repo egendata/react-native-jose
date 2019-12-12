@@ -14,7 +14,10 @@ function keys(keys) {
   return { jwk: keys.jwk, der: pem2der(keys.pem) }
 }
 
-export const sign = Jose.sign
+export const sign = async (payload, privateKeys, header) => {
+  return Jose.sign(payload, keys(privateKeys), header)
+}
+
 export const verify = Jose.verify
 export const decode = Jose.decode
 

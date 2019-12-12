@@ -49,12 +49,12 @@ console.log(Jose)
 import {sign} from '@egendata/react-native-jose'
 
 const payload = {}
-const keys = {
+const privateKeys = {
 	jwk: {},
-	der: '...'
+	pem: '...'
 } // private key containing "jwk" and "der" representations
 const header = {}
-const token = await sign(payload, keys, header)
+const token = await sign(payload, privateKeys, header)
 ```
 
 ## verify
