@@ -72,4 +72,35 @@ class Jose: NSObject {
         let signature = [UInt8](jws.signature)
         resolve(["claimsSet": jsonPayload, "header": jws.header.parameters, "signature": signature])
     }
+
+    @objc
+    func reEncryptCek(_ encryptedCek: String, ownerKeys: NSDictionary, recipientKeys: NSDictionary, alg: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+        var error: Unmanaged<CFError>?
+        let ownerKeyAttributes: [String: Any] = [
+            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+            kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
+            kSecAttrKeySizeInBits as String: 2048
+        ]
+        let recipientKeyAttributes: [String: Any] = [
+            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
+            kSecAttrKeySizeInBits as String: 2048
+        ]
+        let ownerKeyData = Data(base64Encoded: ownerKeys["der"] as! String)
+        let recipientKeyData = Data(base64Encoded: recipientKeys["der"] as! String)
+        guard let ownerKey = SecKeyCreateWithData(ownerKeyData as! CFData, ownerKeyAttributes as CFDictionary, &error) else {
+            print(error!)
+            reject("500", "create owner key failed", error as? Error)
+            return
+        }
+        guard let recipientKey = SecKeyCreateWithData(recipientKeyData as! CFData, recipientKeyAttributes as CFDictionary, &error) else {
+            print(error!)
+            reject("500", "create recipient key failed", error as? Error)
+            return
+        }
+
+        let decryptedData = try! RSA.decrypt(Data(base64URLEncoded: encryptedCek)!, with: ownerKey, and: .RSAOAEP)
+        let encryptedCek = try! RSA.encrypt(decryptedData, with: recipientKey, and: .RSAOAEP)
+        resolve(encryptedCek.base64URLEncodedString())
+    }
 }
