@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/egendata/react-native-jose/compare/v0.4.0...v0.5.0) (2020-01-15)
+
+
+### Features
+
+* 🎸 add recipient ([#3](https://github.com/egendata/react-native-jose/issues/3)) ([bddcc3c](https://github.com/egendata/react-native-jose/commit/bddcc3c5c8d5eb6cb59461633fba4894dd06e596))
+
 # [0.4.0](https://github.com/egendata/react-native-jose/compare/v0.3.0...v0.4.0) (2019-11-20)
 
 
